@@ -1,0 +1,18 @@
+###服务启动端口号
+server:
+  port: 8300
+###服务名称(服务注册到eureka名称)
+spring:
+  application:
+    name: app-bv-member
+###服务注册到eureka地址
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8100/eureka
+####swagger相关配置
+swagger:
+  base-package: com.bv.member.service
+  title: mall-会员服务接口
+  description: mall电商项目
+  version: 1.0

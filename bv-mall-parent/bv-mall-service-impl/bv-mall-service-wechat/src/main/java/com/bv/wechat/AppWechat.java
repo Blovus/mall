@@ -1,8 +1,9 @@
 package com.bv.wechat;
+
+import com.ctrip.framework.apollo.spring.annotation.EnableApolloConfig;
 import com.spring4all.swagger.EnableSwagger2Doc;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.client.SpringCloudApplication;
 
 /**
  * @ProjectName: mall
@@ -13,8 +14,8 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  * @Date: 2019/4/28 0:32
  * @Version: 1.0
  */
-@SpringBootApplication
-@EnableEurekaClient
+@SpringCloudApplication
+@EnableApolloConfig
 @EnableSwagger2Doc
 public class AppWechat {
     public static void main(String[] args) {

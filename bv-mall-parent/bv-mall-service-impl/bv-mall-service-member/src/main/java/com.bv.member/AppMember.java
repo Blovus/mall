@@ -1,11 +1,10 @@
 package com.bv.member;
 
+import com.ctrip.framework.apollo.spring.annotation.EnableApolloConfig;
 import com.spring4all.swagger.EnableSwagger2Doc;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.client.SpringCloudApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * @ProjectName: mall
@@ -16,10 +15,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @Date: 2019/4/29 0:14
  * @Version: 1.0
  */
-@SpringBootApplication
-@EnableEurekaClient
+@SpringCloudApplication
 @EnableFeignClients
 @EnableSwagger2Doc
+@EnableApolloConfig
 public class AppMember {
     public static void main(String[] args) {
         SpringApplication.run(AppMember.class, args);

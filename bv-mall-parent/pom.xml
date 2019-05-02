@@ -12,6 +12,7 @@
         <module>bv-mall-common</module>
         <module>bv-mall-service-api</module>
         <module>bv-mall-service-impl</module>
+        <module>bv-mall-api-entity</module>
     </modules>
     <packaging>pom</packaging><!--修改打包方式-->
     <parent>

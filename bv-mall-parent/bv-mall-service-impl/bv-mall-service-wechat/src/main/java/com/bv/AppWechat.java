@@ -1,26 +1,24 @@
-package com.bv.member;
+package com.bv;
 
 import com.ctrip.framework.apollo.spring.annotation.EnableApolloConfig;
 import com.spring4all.swagger.EnableSwagger2Doc;
 import org.springframework.boot.SpringApplication;
 import org.springframework.cloud.client.SpringCloudApplication;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * @ProjectName: mall
- * @Package: com.bv.member
- * @ClassName: AppMember
+ * @Package: com.bv.wechat
+ * @ClassName: AppWechat
  * @Author: blovus
- * @Description: 会员服务的实现
- * @Date: 2019/4/29 0:14
+ * @Description: 微信服务
+ * @Date: 2019/4/28 0:32
  * @Version: 1.0
  */
 @SpringCloudApplication
-@EnableFeignClients
-@EnableSwagger2Doc
 @EnableApolloConfig
-public class AppMember {
+@EnableSwagger2Doc
+public class AppWechat {
     public static void main(String[] args) {
-        SpringApplication.run(AppMember.class, args);
+        SpringApplication.run(AppWechat.class, args);
     }
 }

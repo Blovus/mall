@@ -1,5 +1,7 @@
 package com.bv.wechat.service.impl;
 
+import com.bv.core.base.BaseApiService;
+import com.bv.core.base.BaseResponse;
 import com.bv.wechat.entity.AppEntity;
 import com.bv.wechat.service.WechatService;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,11 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
  * @Version: 1.0
  */
 @RestController
-public class WechatServiceImpl implements WechatService {
+public class WechatServiceImpl extends BaseApiService<AppEntity> implements WechatService {
 
     @Override
-    public AppEntity getApp() {
-        return new AppEntity("1", "嗷嗷");
+    public BaseResponse<AppEntity> getApp() {
+        return setResultSuccess(new AppEntity("1", "嗷嗷"));
     }
 
 

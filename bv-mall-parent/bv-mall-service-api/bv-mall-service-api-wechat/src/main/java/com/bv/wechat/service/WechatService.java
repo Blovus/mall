@@ -1,5 +1,6 @@
 package com.bv.wechat.service;
 
+import com.bv.core.base.BaseResponse;
 import com.bv.wechat.entity.AppEntity;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -27,5 +28,5 @@ public interface WechatService {
      */
     @ApiOperation(value = "微信应用服务接口")
     @GetMapping("/getApp")
-    AppEntity getApp();
+    BaseResponse<AppEntity> getApp();
 }

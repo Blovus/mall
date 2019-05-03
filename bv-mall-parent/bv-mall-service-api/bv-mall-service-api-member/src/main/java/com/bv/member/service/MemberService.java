@@ -1,5 +1,6 @@
 package com.bv.member.service;
 
+import com.bv.core.base.BaseResponse;
 import com.bv.wechat.entity.AppEntity;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -28,6 +29,6 @@ public interface MemberService {
      */
     @ApiOperation(value = "会员服务调用微信服务")
     @GetMapping("/memberInvokeWechat")
-    AppEntity memberInvokeWechat();
+    BaseResponse<AppEntity> memberInvokeWechat();
 
 }

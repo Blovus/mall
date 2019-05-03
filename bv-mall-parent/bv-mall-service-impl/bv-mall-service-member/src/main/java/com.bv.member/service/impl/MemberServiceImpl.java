@@ -1,6 +1,7 @@
 package com.bv.member.service.impl;
 
 import com.bv.core.base.BaseApiService;
+import com.bv.core.base.BaseResponse;
 import com.bv.member.feign.WechatServiceFegin;
 import com.bv.member.service.MemberService;
 import com.bv.wechat.entity.AppEntity;
@@ -24,7 +25,7 @@ public class MemberServiceImpl extends BaseApiService implements MemberService {
     private WechatServiceFegin wechatServiceFegin;
 
     @Override
-    public AppEntity memberInvokeWechat() {
+    public BaseResponse<AppEntity> memberInvokeWechat() {
         return wechatServiceFegin.getApp();
     }
 

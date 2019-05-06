@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * @ProjectName: mall
  * @Package: com.bv.wechat.service.impl
- * @ClassName: WechatAppserviceImpl
+ * @ClassName: WechatServiceImpl
  * @Author: blovus
  * @Description: 微信接口实现
  * @Date: 2019/4/28 0:27

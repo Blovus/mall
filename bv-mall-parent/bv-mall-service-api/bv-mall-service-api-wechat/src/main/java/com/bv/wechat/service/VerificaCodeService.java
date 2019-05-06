@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @ProjectName: mall
@@ -23,6 +24,6 @@ public interface VerificaCodeService {
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "query", name = "phone", dataType = "String", required = true, value = "用户手机号码"),
             @ApiImplicitParam(paramType = "query", name = "wechatCode", dataType = "String", required = true, value = "微信注册码") })
-    BaseResponse<JSONObject> verificaWeixinCode(String phone, String wechatCode);
+    BaseResponse<JSONObject> verificaWeixinCode(@RequestParam("phone") String phone, @RequestParam("wechatCode") String wechatCode);
 
 }

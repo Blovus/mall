@@ -20,17 +20,26 @@ public interface ExtConstants {
     Integer HTTP_RES_CODE_500 = 500;
     // 未关联QQ账号
     Integer HTTP_RES_CODE_201 = 201;
+    //用户信息不存在
+    Integer HTTP_RES_CODE_EXIST_202 = 202;
+
     // 发送邮件
     String MSG_EMAIL = "email";
+
     // 会员token
     String TOKEN_MEMBER = "TOKEN_MEMBER";
+
     // 用户有效期 90天
     Long TOKEN_MEMBER_TIME = (long) (60 * 60 * 24 * 90);
+
     int COOKIE_TOKEN_MEMBER_TIME = (60 * 60 * 24 * 90);
+
     // cookie 会员 totoken 名称
     String COOKIE_MEMBER_TOKEN = "cookie_member_token";
+
     // 微信code
     String WECHATCODE_KEY = "wechat.code";
+
     // 微信注册码有效期30分钟
-    Long WECHATCODE_TIMEOUT = 1800l;
+    Long WECHATCODE_TIMEOUT = 1800L;
 }

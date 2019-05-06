@@ -2,6 +2,7 @@ package com.bv;
 
 import com.ctrip.framework.apollo.spring.annotation.EnableApolloConfig;
 import com.spring4all.swagger.EnableSwagger2Doc;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.cloud.client.SpringCloudApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
@@ -19,6 +20,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableFeignClients
 @EnableSwagger2Doc
 @EnableApolloConfig
+@MapperScan("com.bv.member.mapper")
 public class AppMember {
     public static void main(String[] args) {
         SpringApplication.run(AppMember.class, args);

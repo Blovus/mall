@@ -2,7 +2,7 @@ package com.bv.member.service;
 
 import com.alibaba.fastjson.JSONObject;
 import com.bv.core.base.BaseResponse;
-import com.bv.member.entity.UserEntity;
+import com.bv.member.dto.input.UserInDTO;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,8 +22,8 @@ public interface MemberRegisterService {
     /**
      * @Method register
      * @Author blovus
-     * @Version  1.0
-     * @Description  会员用户注册信息接口
+     * @Version 1.0
+     * @Description 会员用户注册信息接口
      * @Param userEntity
      * @Param registCode
      * @Return com.bv.core.base.BaseResponse<com.alibaba.fastjson.JSONObject>
@@ -32,8 +32,8 @@ public interface MemberRegisterService {
      */
     @PostMapping("/register")
     @ApiOperation(value = "会员用户注册信息接口")
-    BaseResponse<JSONObject> register(@RequestBody UserEntity userEntity,
-                                      @RequestParam("registCode") String registCode);
+    BaseResponse<JSONObject> register(@RequestBody UserInDTO userInDTO,
+                                      @RequestParam("registCode") String registCode) throws Exception;
 
 
 }

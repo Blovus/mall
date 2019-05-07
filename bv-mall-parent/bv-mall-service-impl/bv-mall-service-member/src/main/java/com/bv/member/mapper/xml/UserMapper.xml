@@ -8,7 +8,7 @@
                 '1', null, now(), null, now());
     </insert>
 
-    <select id="getById" resultType="com.bv.member.entity.UserEntity">
+    <select id="getById" resultType="com.bv.member.mapper.entity.UserDO">
         SELECT ID_MALL_USER,
                MOBILE,
                EMAIL,
@@ -28,7 +28,7 @@
         WHERE ID_MALL_USER = #{id};
     </select>
 
-    <select id="getByMobile" resultType="com.bv.member.entity.UserEntity">
+    <select id="getByMobile" resultType="com.bv.member.mapper.entity.UserDO">
         SELECT ID_MALL_USER,
                MOBILE,
                EMAIL,

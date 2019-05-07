@@ -4,9 +4,10 @@ import com.bv.core.base.BaseResponse;
 import com.bv.core.constants.ExtConstants;
 import com.bv.core.templates.ExtRedisTemplate;
 import com.bv.core.utils.ExtRegexUtils;
-import com.bv.member.entity.UserEntity;
+import com.bv.member.dto.output.UserOutDTO;
 import com.bv.wechat.fegin.MemberServiceFeign;
 import com.bv.wechat.mp.builder.TextBuilder;
+import lombok.extern.slf4j.Slf4j;
 import me.chanjar.weixin.common.error.WxErrorException;
 import me.chanjar.weixin.common.session.WxSessionManager;
 import me.chanjar.weixin.mp.api.WxMpService;
@@ -81,7 +82,13 @@ public class MsgHandler extends AbstractHandler {
         //判断是否为手机号码，如果是的话做则随机生成4位数字注册码
         if (ExtRegexUtils.checkMobile(wxMessageContent)) {
             String content = null;
-            BaseResponse<UserEntity> resultUserInfo = memberServiceFeign.existMobile(wxMessageContent);
+            BaseResponse<UserOutDTO> resultUserInfo = null;
+            try {
+                resultUserInfo = memberServiceFeign.existMobile(wxMessageContent);
+            } catch (Exception e) {
+                logger.error(e.getMessage());
+                e.printStackTrace();
+            }
             if (!resultUserInfo.getRtnCode().equals(ExtConstants.HTTP_RES_CODE_EXIST_202)) {
                 content = String.format(registrationUserExistMessage, wxMessageContent);
                 return new TextBuilder().build(content, wxMessage, weixinService);

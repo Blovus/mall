@@ -1,7 +1,6 @@
 package com.bv.member.mapper;
 
-import com.bv.member.entity.UserEntity;
-import org.apache.ibatis.annotations.Mapper;
+import com.bv.member.mapper.entity.UserDO;
 import org.apache.ibatis.annotations.Param;
 
 /**
@@ -15,10 +14,10 @@ import org.apache.ibatis.annotations.Param;
  */
 public interface UserMapper {
 
-    Integer insert(UserEntity userEntity);
+    Integer insert(UserDO userDO);
 
-    UserEntity getById(@Param("id") String id);
+    UserDO getById(@Param("id") String id);
 
-    UserEntity getByMobile(@Param("mobile") String mobile);
+    UserDO getByMobile(@Param("mobile") String mobile);
 
 }

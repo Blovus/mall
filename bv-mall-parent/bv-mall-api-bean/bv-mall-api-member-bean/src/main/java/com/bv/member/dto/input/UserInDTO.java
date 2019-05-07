@@ -1,23 +1,24 @@
-package com.bv.member.entity;
+package com.bv.member.dto.input;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.Serializable;
-import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+import java.util.Date;
+
 /**
-* Created by Mybatis com.bv.mbg.Generator on 2019/05/04
-*/
+ * Created by Mybatis com.bv.mbg.Generator on 2019/05/04
+ */
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@ApiModel(value = "用户会员表")
-public class UserEntity implements Serializable {
+@ApiModel(value = "用户请求参数")
+public class UserInDTO implements Serializable {
     /**
      * 主键id
      */
@@ -78,35 +79,6 @@ public class UserEntity implements Serializable {
     @ApiModelProperty(value = "微信公众号关注id")
     private String wxOpenid;
 
-    /**
-     * 是否可用 1正常  2冻结
-     */
-    @ApiModelProperty(value = "是否可用 1正常  2冻结")
-    private Boolean isValid;
-
-    /**
-     * 创建用户
-     */
-    @ApiModelProperty(value = "创建用户")
-    private Integer createBy;
-
-    /**
-     * 创建时间
-     */
-    @ApiModelProperty(value = "创建时间")
-    private Date createTime;
-
-    /**
-     * 更新用户
-     */
-    @ApiModelProperty(value = "更新用户")
-    private Integer updateBy;
-
-    /**
-     * 更新时间
-     */
-    @ApiModelProperty(value = "更新时间")
-    private Date updateTime;
 
     private static final long serialVersionUID = 1L;
 }

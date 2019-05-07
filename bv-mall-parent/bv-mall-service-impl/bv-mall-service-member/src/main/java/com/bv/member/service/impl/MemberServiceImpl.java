@@ -3,7 +3,10 @@ package com.bv.member.service.impl;
 import com.bv.core.base.BaseApiService;
 import com.bv.core.base.BaseResponse;
 import com.bv.core.constants.ExtConstants;
-import com.bv.member.entity.UserEntity;
+import com.bv.member.dto.output.UserOutDTO;
+import com.bv.member.mapper.converter.UserOutConverter;
+import com.bv.member.mapper.entity.UserDO;
+import com.bv.member.mapper.entity.UserEntity;
 import com.bv.member.feign.WechatServiceFeign;
 import com.bv.member.mapper.UserMapper;
 import com.bv.member.service.MemberService;
@@ -20,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Date: 2019/4/28 23:55
  * @Version: 1.0
  */
-@RestController
+@RestController("MemberService")
 public class MemberServiceImpl extends BaseApiService implements MemberService {
 
 
@@ -30,22 +33,23 @@ public class MemberServiceImpl extends BaseApiService implements MemberService {
     @Autowired
     private UserMapper userMapper;
 
+    @Autowired
+    private UserOutConverter userOutConverter;
 
     @Override
-    public BaseResponse<UserEntity> existMobile(String mobile) {
+    public BaseResponse<UserOutDTO> existMobile(String mobile) throws Exception {
         // 验证参数
         if (StringUtils.isEmpty(mobile)) {
             return setResultError("手机号码不能为空!");
         }
         //根据手机号码查询
-        UserEntity userEntity = userMapper.getByMobile(mobile);
-        if (userEntity == null) {
+        UserDO userDO = userMapper.getByMobile(mobile);
+        if (userDO == null) {
             return setResultError(ExtConstants.HTTP_RES_CODE_EXIST_202, "用户不存在");
         }
-        // 注意需要将敏感数据进行脱敏  todo 下次转dto
-        userEntity.setPassword(null);
-
-        return setResultSuccess(userEntity);
+        //转换为DTO
+        UserOutDTO userOutDTO = userOutConverter.invert(userDO);
+        return setResultSuccess(userOutDTO);
     }
 
 

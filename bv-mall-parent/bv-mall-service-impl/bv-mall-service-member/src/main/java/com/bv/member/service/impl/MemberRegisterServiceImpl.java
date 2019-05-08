@@ -12,7 +12,6 @@ import com.bv.member.mapper.converter.UserInConverter;
 import com.bv.member.mapper.entity.UserDO;
 import com.bv.member.service.MemberRegisterService;
 import com.ctrip.framework.apollo.core.utils.StringUtils;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;

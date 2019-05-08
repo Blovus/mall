@@ -7,7 +7,6 @@ import com.bv.core.utils.ExtRegexUtils;
 import com.bv.member.dto.output.UserOutDTO;
 import com.bv.wechat.fegin.MemberServiceFeign;
 import com.bv.wechat.mp.builder.TextBuilder;
-import lombok.extern.slf4j.Slf4j;
 import me.chanjar.weixin.common.error.WxErrorException;
 import me.chanjar.weixin.common.session.WxSessionManager;
 import me.chanjar.weixin.mp.api.WxMpService;

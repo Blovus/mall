@@ -52,13 +52,13 @@ public class UserInDTO implements Serializable {
      * 性别  1男  2女
      */
     @ApiModelProperty(value = "性别  1男  2女")
-    private Boolean sex;
+    private Integer sex;
 
     /**
      * 年龄
      */
     @ApiModelProperty(value = "年龄")
-    private Byte age;
+    private Integer age;
 
     /**
      * 用户头像

@@ -42,7 +42,7 @@ public class MemberServiceImpl extends BaseApiService implements MemberService {
             return setResultError("手机号码不能为空!");
         }
         //根据手机号码查询
-        UserDO userDO = userMapper.getByMobile(mobile);
+        UserDO userDO = userMapper.getByMobile(mobile, 0);
         if (userDO == null) {
             return setResultError(ExtConstants.HTTP_RES_CODE_EXIST_202, "用户不存在");
         }

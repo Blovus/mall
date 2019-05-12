@@ -9,63 +9,43 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Created by Mybatis com.bv.mbg.Generator on 2019/05/04
- * 用户会员表
+ * @ProjectName: mall
+ * @Package: com.bv.member.mapper.entity
+ * @ClassName: UserTokenDo
+ * @Author: blovus
+ * @Description: 用户登陆票据表
+ * @Date: 2019/5/12 21:55
+ * @Version: 1.0
  */
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDO implements Serializable {
+public class UserTokenDo implements Serializable {
     /**
      * 主键id
+     */
+    private Integer idMallUserToken;
+
+    /**
+     * 用户会员表id
      */
     private Integer idMallUser;
 
     /**
-     * 手机号
+     * 用户票据
      */
-    private String mobile;
+    private String userToken;
 
     /**
-     * 邮箱号
+     * 登录端类型 0-测试使用 1-pc 2-安卓 3-ios 4-微信 99-未知
      */
-    private String email;
+    private String loginType;
 
     /**
-     * 密码
+     * 登陆设备
      */
-    private String password;
-
-    /**
-     * 用户名
-     */
-    private String userName;
-
-    /**
-     * 性别  1男  2女
-     */
-    private Integer sex;
-
-    /**
-     * 年龄
-     */
-    private Integer age;
-
-    /**
-     * 用户头像
-     */
-    private String picImg;
-
-    /**
-     * QQ联合登陆id
-     */
-    private String qqOpenid;
-
-    /**
-     * 微信公众号关注id
-     */
-    private String wxOpenid;
+    private String device_info;
 
     /**
      * 是否可用 0正常  1冻结

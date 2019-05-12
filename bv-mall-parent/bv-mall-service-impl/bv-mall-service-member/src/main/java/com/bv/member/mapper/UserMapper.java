@@ -16,8 +16,8 @@ public interface UserMapper {
 
     Integer insert(UserDO userDO);
 
-    UserDO getById(@Param("id") String id);
+    UserDO getById(@Param("id") String id, @Param("valid") Integer valid);
 
-    UserDO getByMobile(@Param("mobile") String mobile);
+    UserDO getByMobile(@Param("mobile") String mobile, @Param("valid") Integer valid);
 
 }

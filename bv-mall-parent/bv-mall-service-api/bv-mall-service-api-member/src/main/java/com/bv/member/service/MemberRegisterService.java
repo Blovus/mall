@@ -3,6 +3,7 @@ package com.bv.member.service;
 import com.alibaba.fastjson.JSONObject;
 import com.bv.core.base.BaseResponse;
 import com.bv.member.dto.input.UserInDTO;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @Date: 2019/5/3 15:20
  * @Version: 1.0
  */
+@Api(tags = "会员注册接口")
 public interface MemberRegisterService {
 
     /**

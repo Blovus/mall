@@ -59,5 +59,30 @@
         ;
     </select>
 
+    <select id="getByMobileAndPassword" resultType="com.bv.member.mapper.entity.UserDO">
+        SELECT
+        ID_MALL_USER,
+        MOBILE,
+        EMAIL,
+        PASSWORD,
+        USER_NAME,
+        SEX,
+        AGE,
+        PIC_IMG,
+        QQ_OPENID,
+        WX_OPENID,
+        IS_VALID,
+        CREATE_BY,
+        CREATE_TIME,
+        UPDATE_BY,
+        UPDATE_TIME
+        FROM mall_user
+        WHERE MOBILE = #{mobile} 
+        AND  PASSWORD = #{password} 
+        <if test="valid!=null">     
+            AND IS_VALID = #{valid}    
+        </if>
+        ;
+    </select>
 
 </mapper>

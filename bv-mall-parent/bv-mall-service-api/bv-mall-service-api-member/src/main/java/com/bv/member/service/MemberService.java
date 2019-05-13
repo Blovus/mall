@@ -6,6 +6,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -34,7 +35,21 @@ public interface MemberService {
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "query", name = "mobile", dataType = "String", required = true, value = "用户手机号码"),})
     @PostMapping("/existMobile")
-    BaseResponse<UserOutDTO> existMobile(@RequestParam("mobile") String mobile) throws Exception;
+    BaseResponse<UserOutDTO> existMobile(@RequestParam("mobile") String mobile) ;
+
+    /**
+     * @Method getUserInfo
+     * @Author blovus
+     * @Version 1.0
+     * @Description 根据token查询用户信息
+     * @Param token
+     * @Return com.bv.core.base.BaseResponse<com.bv.member.dto.output.UserOutDTO>
+     * @Exception
+     * @Date 2019/5/13 23:26
+     */
+    @GetMapping("/userInfo")
+    @ApiOperation(value = "/userInfo")
+    BaseResponse<UserOutDTO> getUserInfo(@RequestParam("token") String token);
 
 
 }

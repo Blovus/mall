@@ -25,12 +25,12 @@ public class UserTokenDo implements Serializable {
     /**
      * 主键id
      */
-    private Integer idMallUserToken;
+    private Long idMallUserToken;
 
     /**
      * 用户会员表id
      */
-    private Integer idMallUser;
+    private Long idMallUser;
 
     /**
      * 用户票据
@@ -45,7 +45,7 @@ public class UserTokenDo implements Serializable {
     /**
      * 登陆设备
      */
-    private String device_info;
+    private String deviceInfo;
 
     /**
      * 是否可用 0正常  1冻结

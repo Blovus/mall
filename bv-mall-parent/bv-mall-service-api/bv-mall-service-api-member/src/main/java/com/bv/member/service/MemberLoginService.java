@@ -2,6 +2,7 @@ package com.bv.member.service;
 
 import com.alibaba.fastjson.JSONObject;
 import com.bv.core.base.BaseResponse;
+import com.bv.member.dto.input.UserLoginInpDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PostMapping;

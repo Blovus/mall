@@ -20,7 +20,7 @@ public class UserDO implements Serializable {
     /**
      * 主键id
      */
-    private Integer idMallUser;
+    private Long idMallUser;
 
     /**
      * 手机号

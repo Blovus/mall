@@ -35,11 +35,12 @@ public interface ExtConstants {
     int COOKIE_TOKEN_MEMBER_TIME = (60 * 60 * 24 * 90);
 
     // cookie 会员 totoken 名称
-    String COOKIE_MEMBER_TOKEN = "cookie_member_token";
+    String COOKIE_MEMBER_TOKEN = "ck_mb_token";
 
     // 微信code
-    String WECHATCODE_KEY = "wechat.code";
+    String WECHATCODE_KEY = "wc.code";
 
     // 微信注册码有效期30分钟
     Long WECHATCODE_TIMEOUT = 1800L;
+
 }

@@ -22,7 +22,7 @@ public class UserInDTO implements Serializable {
      * 主键id
      */
     @ApiModelProperty(value = "主键id")
-    private Integer idMallUser;
+    private Long idMallUser;
 
     /**
      * 手机号

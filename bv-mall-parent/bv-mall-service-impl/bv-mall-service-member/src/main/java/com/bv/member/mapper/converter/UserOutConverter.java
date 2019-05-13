@@ -20,13 +20,13 @@ public class UserOutConverter extends Converter<UserDO, UserOutDTO> {
 
 
     @Override
-    protected UserOutDTO defaultInvert(UserDO userDO) throws Exception {
+    protected UserOutDTO defaultInvert(UserDO userDO)  {
 
         return ExtBeanUtils.doToDto(userDO, UserOutDTO.class);
     }
 
     @Override
-    protected UserDO defaultConvert(UserOutDTO userOutDTO) throws Exception {
+    protected UserDO defaultConvert(UserOutDTO userOutDTO) {
         return ExtBeanUtils.dtoToDo(userOutDTO, UserDO.class);
     }
 }

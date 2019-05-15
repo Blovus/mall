@@ -3,9 +3,12 @@
 <mapper namespace="com.bv.member.mapper.UserMapper">
     <insert id="insert">
         INSERT INTO `mall_user`
+        (ID_MALL_USER, MOBILE, EMAIL, PASSWORD, USER_NAME,
+         SEX, AGE, PIC_IMG, QQ_OPENID, WX_OPENID,
+         IS_VALID, CREATE_BY, CREATE_TIME, UPDATE_BY, UPDATE_TIME)
         VALUES (#{idMallUser}, #{mobile}, #{email}, #{password}, #{userName},
-                #{sex}, #{age}, #{picImg}, #{qqOpenid}, #{weOpenId},
-                '1', null, now(), null, now());
+                #{sex}, #{age}, #{picImg}, #{qqOpenId}, #{wxOpenId},
+                '1', #{idMallUser}, now(), #{idMallUser}, now());
     </insert>
 
     <select id="getById" resultType="com.bv.member.mapper.entity.UserDO">
@@ -26,11 +29,7 @@
         UPDATE_BY,
         UPDATE_TIME
         FROM mall_user
-        WHERE ID_MALL_USER = #{id}
-        <if test="valid!=null and valid!='' ">     
-            AND IS_VALID = #{valid}     
-        </if>
-        ;
+        WHERE ID_MALL_USER = #{id} <if test="valid!=null and valid!='' ">AND IS_VALID = #{valid}</if>;
     </select>
 
 
@@ -52,9 +51,9 @@
         UPDATE_BY,
         UPDATE_TIME
         FROM mall_user
-        WHERE MOBILE = #{mobile}  
-        <if test="valid!=null">     
-            AND IS_VALID = #{valid}    
+        WHERE MOBILE = #{mobile}
+        <if test="valid!=null">
+            AND IS_VALID=#{valid}
         </if>
         ;
     </select>
@@ -77,10 +76,10 @@
         UPDATE_BY,
         UPDATE_TIME
         FROM mall_user
-        WHERE MOBILE = #{mobile} 
-        AND  PASSWORD = #{password} 
-        <if test="valid!=null">     
-            AND IS_VALID = #{valid}    
+        WHERE MOBILE = #{mobile}
+        AND  PASSWORD = #{password}
+        <if test="valid!=null">
+            AND IS_VALID = #{valid}
         </if>
         ;
     </select>

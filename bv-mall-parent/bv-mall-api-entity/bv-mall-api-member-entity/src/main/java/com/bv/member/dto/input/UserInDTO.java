@@ -19,12 +19,6 @@ import java.io.Serializable;
 @ApiModel(value = "用户请求参数")
 public class UserInDTO implements Serializable {
     /**
-     * 主键id
-     */
-    @ApiModelProperty(value = "主键id")
-    private Long idMallUser;
-
-    /**
      * 手机号
      */
     @ApiModelProperty(value = "手机号")
@@ -70,13 +64,13 @@ public class UserInDTO implements Serializable {
      * QQ联合登陆id
      */
     @ApiModelProperty(value = "QQ联合登陆id")
-    private String qqOpenid;
+    private String qqOpenId;
 
     /**
      * 微信公众号关注id
      */
     @ApiModelProperty(value = "微信公众号关注id")
-    private String wxOpenid;
+    private String wxOpenId;
 
 
     private static final long serialVersionUID = 1L;

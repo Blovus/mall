@@ -14,13 +14,13 @@ import org.apache.ibatis.annotations.Param;
  */
 public interface UserMapper {
 
-    Integer insert(UserDO userDO);
+    int insert(UserDO userDO);
 
     UserDO getById(@Param("id") Long id, @Param("valid") Integer valid);
 
     UserDO getByMobile(@Param("mobile") String mobile, @Param("valid") Integer valid);
 
-    UserDO getByMobileAndPassword(@Param("mobile") String mobile,@Param("password") String password, @Param("valid") Integer valid);
+    UserDO getByMobileAndPassword(@Param("mobile") String mobile, @Param("password") String password, @Param("valid") String valid);
 
 
 }

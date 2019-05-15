@@ -22,7 +22,6 @@ CREATE TABLE `mall_user`
     UNIQUE KEY `USER_NAME_UNIQUE` (`USER_NAME`),
     UNIQUE KEY `EMAIL_UNIQUE` (`EMAIL`)
 ) ENGINE = InnoDB
-  AUTO_INCREMENT = 25
   DEFAULT CHARSET = utf8 COMMENT ='用户会员表';
 
 
@@ -43,5 +42,3 @@ CREATE TABLE `mall_user_token`
     `update_time`        timestamp    NOT NULL DEFAULT NOW() COMMENT '更新时间',
     PRIMARY KEY (`id_mall_user_token`)
 ) ENGINE = InnoDB
-  AUTO_INCREMENT = 2
-

@@ -17,8 +17,8 @@ public class SnowflakeIdUtils {
         idWorker = new SnowflakeIdWorker(1, 1);
     }
 
-    public static String getId() {
-        return idWorker.nextId() + "";
+    public static Long getId() {
+        return idWorker.nextId() ;
     }
 
 }

@@ -64,13 +64,13 @@ public class UserOutDTO implements Serializable {
      * QQ联合登陆id
      */
     @ApiModelProperty(value = "QQ联合登陆id")
-    private String qqOpenid;
+    private String qqOpenId;
 
     /**
      * 微信公众号关注id
      */
     @ApiModelProperty(value = "微信公众号关注id")
-    private String wxOpenid;
+    private String wxOpenId;
 
 
     private static final long serialVersionUID = 1L;

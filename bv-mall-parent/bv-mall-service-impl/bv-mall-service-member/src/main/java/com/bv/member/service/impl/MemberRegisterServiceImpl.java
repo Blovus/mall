@@ -5,6 +5,7 @@ import com.bv.core.base.BaseApiService;
 import com.bv.core.base.BaseResponse;
 import com.bv.core.constants.ExtConstants;
 import com.bv.core.utils.MD5Utils;
+import com.bv.core.utils.SnowflakeIdUtils;
 import com.bv.member.dto.input.UserInDTO;
 import com.bv.member.feign.VerificaCodeServiceFeign;
 import com.bv.member.mapper.UserMapper;
@@ -42,6 +43,8 @@ public class MemberRegisterServiceImpl extends BaseApiService implements MemberR
     @Override
     @Transactional
     public BaseResponse<JSONObject> register(@RequestBody UserInDTO userInDTO, String registCode) throws Exception {
+
+        System.out.println("xxxx");
         // 验证参数
         String userName = userInDTO.getUserName();
         if (StringUtils.isEmpty(userName)) {
@@ -66,6 +69,8 @@ public class MemberRegisterServiceImpl extends BaseApiService implements MemberR
         }
         //转换为DO
         UserDO userEntity = userInConverter.convert(userInDTO);
+
+        userEntity.setIdMallUser(SnowflakeIdUtils.getId());
 
         int registerResult = userMapper.insert(userEntity);
 

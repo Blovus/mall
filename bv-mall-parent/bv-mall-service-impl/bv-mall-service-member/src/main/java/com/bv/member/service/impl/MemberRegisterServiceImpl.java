@@ -42,9 +42,8 @@ public class MemberRegisterServiceImpl extends BaseApiService implements MemberR
 
     @Override
     @Transactional
-    public BaseResponse<JSONObject> register(@RequestBody UserInDTO userInDTO, String registCode) throws Exception {
+    public BaseResponse<JSONObject> register(@RequestBody UserInDTO userInDTO, String registCode) {
 
-        System.out.println("xxxx");
         // 验证参数
         String userName = userInDTO.getUserName();
         if (StringUtils.isEmpty(userName)) {
@@ -70,7 +69,8 @@ public class MemberRegisterServiceImpl extends BaseApiService implements MemberR
         //转换为DO
         UserDO userEntity = userInConverter.convert(userInDTO);
 
-        userEntity.setIdMallUser(SnowflakeIdUtils.getId());
+        Long userId = SnowflakeIdUtils.getId();
+        userEntity.setIdMallUser(userId);
 
         int registerResult = userMapper.insert(userEntity);
 

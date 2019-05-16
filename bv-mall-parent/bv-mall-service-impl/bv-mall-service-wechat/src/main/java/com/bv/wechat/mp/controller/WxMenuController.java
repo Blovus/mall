@@ -164,7 +164,6 @@ public class WxMenuController {
     private String registrationCodeMessage;
     @GetMapping("/menuTryMatch/{userid}")
     public WxMenu menuTryMatch(@PathVariable String appid, @PathVariable String userid) throws WxErrorException {
-        System.out.printf(registrationCodeMessage+"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
         return WxMpConfiguration.getMpServices().get(appid).getMenuService().menuTryMatch(userid);
     }
 

@@ -3,83 +3,87 @@
 <mapper namespace="com.bv.member.mapper.UserMapper">
     <insert id="insert">
         INSERT INTO `mall_user`
-        (ID_MALL_USER, MOBILE, EMAIL, PASSWORD, USER_NAME,
-         SEX, AGE, PIC_IMG, QQ_OPENID, WX_OPENID,
-         IS_VALID, CREATE_BY, CREATE_TIME, UPDATE_BY, UPDATE_TIME)
+        (id_mall_user, mobile, email, password, user_name,
+         sex, age, pic_img, qq_openid, wx_openid,
+         is_valid, create_by, create_time, update_by, update_time)
         VALUES (#{idMallUser}, #{mobile}, #{email}, #{password}, #{userName},
                 #{sex}, #{age}, #{picImg}, #{qqOpenId}, #{wxOpenId},
-                '1', #{idMallUser}, now(), #{idMallUser}, now());
+                '0', #{idMallUser}, now(), #{idMallUser}, now());
     </insert>
 
     <select id="getById" resultType="com.bv.member.mapper.entity.UserDO">
         SELECT
-        ID_MALL_USER,
-        MOBILE,
-        EMAIL,
-        PASSWORD,
-        USER_NAME,
-        SEX,
-        AGE,
-        PIC_IMG,
-        QQ_OPENID,
-        WX_OPENID,
-        IS_VALID,
-        CREATE_BY,
-        CREATE_TIME,
-        UPDATE_BY,
-        UPDATE_TIME
+        id_mall_user as idMallUser,
+        mobile as mobile,
+        email as email,
+        password as password,
+        user_name as userName,
+        sex as sex,
+        age as age,
+        pic_img as picImg,
+        qq_openid as qqOpenId,
+        wx_openid as wxOpenId,
+        is_valid as isValid,
+        create_by as createBy,
+        create_time as createTime,
+        update_by as updateBy,
+        update_time as updateTime
         FROM mall_user
-        WHERE ID_MALL_USER = #{id} <if test="valid!=null and valid!='' ">AND IS_VALID = #{valid}</if>;
+        WHERE id_mall_user = #{id}
+          <if test="valid!=null and valid!='' ">
+          AND is_valid = #{valid}
+        </if>
+        ;
     </select>
 
 
     <select id="getByMobile" resultType="com.bv.member.mapper.entity.UserDO">
         SELECT
-        ID_MALL_USER,
-        MOBILE,
-        EMAIL,
-        PASSWORD,
-        USER_NAME,
-        SEX,
-        AGE,
-        PIC_IMG,
-        QQ_OPENID,
-        WX_OPENID,
-        IS_VALID,
-        CREATE_BY,
-        CREATE_TIME,
-        UPDATE_BY,
-        UPDATE_TIME
+        id_mall_user as idMallUser,
+        mobile as mobile,
+        email as email,
+        password as password,
+        user_name as userName,
+        sex as sex,
+        age as age,
+        pic_img as picImg,
+        qq_openid as qqOpenId,
+        wx_openid as wxOpenId,
+        is_valid as isValid,
+        create_by as createBy,
+        create_time as createTime,
+        update_by as updateBy,
+        update_time as updateTime
         FROM mall_user
-        WHERE MOBILE = #{mobile}
+        WHERE mobile = #{mobile}
         <if test="valid!=null">
-            AND IS_VALID=#{valid}
+            AND is_valid=#{valid}
         </if>
         ;
     </select>
 
     <select id="getByMobileAndPassword" resultType="com.bv.member.mapper.entity.UserDO">
         SELECT
-        ID_MALL_USER,
-        MOBILE,
-        EMAIL,
-        PASSWORD,
-        USER_NAME,
-        SEX,
-        AGE,
-        PIC_IMG,
-        QQ_OPENID,
-        WX_OPENID,
-        IS_VALID,
-        CREATE_BY,
-        CREATE_TIME,
-        UPDATE_BY,
-        UPDATE_TIME
+        id_mall_user as idMallUser,
+        mobile as mobile,
+        email as email,
+        password as password,
+        user_name as userName,
+        sex as sex,
+        age as age,
+        pic_img as picImg,
+        qq_openid as qqOpenId,
+        wx_openid as wxOpenId,
+        is_valid as isValid,
+        create_by as createBy,
+        create_time as createTime,
+        update_by as updateBy,
+        update_time as updateTime
         FROM mall_user
-        WHERE MOBILE = #{mobile}
-        AND  PASSWORD = #{password}
+        WHERE mobile = #{mobile}
+        AND password = #{password}
         <if test="valid!=null">
-            AND IS_VALID = #{valid}
+            AND is_valid = #{valid}
         </if>
         ;
     </select>

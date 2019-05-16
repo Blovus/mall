@@ -1,5 +1,6 @@
 package com.bv.core.generator;
 
+import lombok.extern.slf4j.Slf4j;
 import org.mybatis.generator.api.MyBatisGenerator;
 import org.mybatis.generator.config.Configuration;
 import org.mybatis.generator.config.xml.ConfigurationParser;
@@ -18,6 +19,7 @@ import java.util.List;
  * @Date: 2019/5/3 22:54
  * @Version: 1.0
  */
+@Slf4j
 public class MBDGenerator {
 
     public void generator(InputStream is) throws Exception {
@@ -37,7 +39,7 @@ public class MBDGenerator {
         myBatisGenerator.generate(null);
         //输出警告信息
         for (String warning : warnings) {
-            System.out.println(warning);
+            log.warn(warning);
         }
 
     }

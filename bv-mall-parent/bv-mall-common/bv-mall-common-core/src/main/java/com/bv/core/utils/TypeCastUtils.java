@@ -1,5 +1,7 @@
 package com.bv.core.utils;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * @ProjectName: mall
  * @Package: com.bv.core.utils
@@ -9,6 +11,7 @@ package com.bv.core.utils;
  * @Date: 2019/5/13 23:29
  * @Version: 1.0
  */
+@Slf4j
 public class TypeCastUtils {
     private static final String DEFAULT_STRING = "";
     private static final int DEFAULT_INT = 0;
@@ -71,7 +74,7 @@ public class TypeCastUtils {
             try {
                 intValue = Integer.parseInt(toString(objectValue, toString(defaultValue)));
             } catch (NumberFormatException numberFormatException) {
-                System.err.println(numberFormatException.getMessage());
+                log.error("error is {}",numberFormatException.getMessage());
             }
         }
         return intValue;
@@ -87,7 +90,7 @@ public class TypeCastUtils {
             try {
                 intValue = Integer.parseInt(stringValue);
             } catch (NumberFormatException numberFormatException) {
-                System.err.println(numberFormatException.getMessage());
+                log.error("error is {}",numberFormatException.getMessage());
             }
         }
         return intValue;
@@ -147,7 +150,7 @@ public class TypeCastUtils {
             try {
                 longValue = Long.parseLong(toString(objectValue, toString(defaultValue)));
             } catch (NumberFormatException numberFormatException) {
-                System.err.println(numberFormatException.getMessage());
+                log.error("error is {}",numberFormatException.getMessage());
             }
         }
         return longValue;
@@ -271,7 +274,7 @@ public class TypeCastUtils {
             try {
                 floatValue = Float.valueOf(toString(objectValue, toString(defaultValue)));
             } catch (NumberFormatException numberFormatException) {
-                System.err.println(numberFormatException);
+                log.error("error is {}",numberFormatException.getMessage());
             }
         }
         return floatValue;
@@ -287,7 +290,7 @@ public class TypeCastUtils {
             try {
                 floatValue = Float.valueOf(stringValue);
             } catch (NumberFormatException numberFormatException) {
-                System.err.println(numberFormatException.getMessage());
+                log.error("error is {}",numberFormatException.getMessage());
             }
         }
         return floatValue;

@@ -1,5 +1,6 @@
 package com.bv.mbg;
 
+import lombok.extern.slf4j.Slf4j;
 import org.mybatis.generator.api.MyBatisGenerator;
 import org.mybatis.generator.config.Configuration;
 import org.mybatis.generator.config.xml.ConfigurationParser;
@@ -13,6 +14,7 @@ import java.util.List;
  * 用于生产MBG的代码
  * Created by macro on 2018/4/26.
  */
+@Slf4j
 public class Generator {
     public static void main(String[] args) throws Exception {
         //MBG 执行过程中的警告信息
@@ -32,7 +34,7 @@ public class Generator {
         myBatisGenerator.generate(null);
         //输出警告信息
         for (String warning : warnings) {
-            System.out.println(warning);
+            log.warn(warning);
         }
     }
 }

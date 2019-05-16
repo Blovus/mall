@@ -2,24 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bv.member.mapper.UserTokenMapper">
     <select id="getByUserIdAndLoginType" resultType="com.bv.member.mapper.entity.UserTokenDO">
-        SELECT id_mall_user_token,
-               id_mall_user,
-               user_token,
-               login_type,
-               device_info,
-               is_valid,
-               create_by,
-               create_time,
-               update_by,
-               update_time
-        FROM meite_user_token
+        SELECT id_mall_user_token as idMallUserToken,
+               id_mall_user as idMallUser,
+               user_token as userToken,
+               login_type as loginType,
+               device_info as deviceInfo,
+               is_valid as isValid,
+               create_by as createBy,
+               create_time as createTime,
+               update_by as  updateBy,
+               update_time as updateTime
+        FROM mall_user_token
         WHERE id_mall_user = #{userId}
           AND login_type = #{loginType}
           and is_valid = '0';
     </select>
 
     <update id="deleteByUserIdAndloginType">
-        update meite_user_token
+        update mall_user_token
         set is_valid   ='1',
             update_by  = #{userId},
             update_time=now()
@@ -30,7 +30,7 @@
 
     <insert id="insert">
         INSERT INTO `mall_user_token`
-        VALUES (#{idMallUserToken}, #{idMallUser}, #{token}, #{loginType}, #{deviceInfor}, 0, #{userId}, now(),
+        VALUES (#{idMallUserToken}, #{idMallUser}, #{userToken}, #{loginType}, #{deviceInfo}, 0, #{idMallUser}, now(),
                 #{idMallUser},
                 now())
         ;

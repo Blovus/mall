@@ -102,11 +102,13 @@ public class MemberLoginServiceImpl extends BaseApiService<JSONObject> implement
 
         //表中插入新的token
         UserTokenDO newUserTokenDO = new UserTokenDO();
-        newUserTokenDO.setIdMallUserToken(SnowflakeIdUtils.getId());
+
+        long tokenId = SnowflakeIdUtils.getId();
+        newUserTokenDO.setIdMallUserToken(tokenId);
         newUserTokenDO.setIdMallUser(userId);
-        userTokenDo.setLoginType(loginType);
-        userTokenDo.setUserToken(token);
-        userTokenDo.setDeviceInfo(deviceInfo);
+        newUserTokenDO.setLoginType(loginType);
+        newUserTokenDO.setUserToken(token);
+        newUserTokenDO.setDeviceInfo(deviceInfo);
         newUserTokenDO.setCreateBy(userId);
         newUserTokenDO.setUpdateBy(userId);
 

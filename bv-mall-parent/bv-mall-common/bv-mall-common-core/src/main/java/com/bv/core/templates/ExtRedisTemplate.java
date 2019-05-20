@@ -17,6 +17,7 @@ import java.util.concurrent.TimeUnit;
  */
 @Component("ExtRedisTemplate")
 public class ExtRedisTemplate {
+
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
@@ -63,5 +64,32 @@ public class ExtRedisTemplate {
     public Boolean delKey(String key) {
         return stringRedisTemplate.delete(key);
     }
+
+    /**
+     * 开启Redis 事务
+     */
+    public void begin() {
+        // 开启Redis 事务权限
+        stringRedisTemplate.setEnableTransactionSupport(true);
+        // 开启事务
+        stringRedisTemplate.multi();
+
+    }
+
+    /**
+     * 提交事务
+     */
+    public void exec() {
+        // 成功提交事务
+        stringRedisTemplate.exec();
+    }
+
+    /**
+     * 回滚Redis 事务
+     */
+    public void discard() {
+        stringRedisTemplate.discard();
+    }
+
 
 }

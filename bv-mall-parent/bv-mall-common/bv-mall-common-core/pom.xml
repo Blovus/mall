@@ -23,6 +23,9 @@
             <artifactId>mybatis-generator-core</artifactId>
             <version>1.3.3</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
     </dependencies>
 </project>

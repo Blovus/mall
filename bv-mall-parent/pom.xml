@@ -18,8 +18,8 @@
     <packaging>pom</packaging><!--修改打包方式-->
 
     <properties>
-        <spring-boot.version>2.0.1.RELEASE</spring-boot.version>
-        <spring-cloud.version>Finchley.M9</spring-cloud.version>
+        <spring-boot.version>2.1.3.RELEASE</spring-boot.version>
+        <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
         <spring-platform-bom.version>Cairo-SR7</spring-platform-bom.version>
     </properties>
 

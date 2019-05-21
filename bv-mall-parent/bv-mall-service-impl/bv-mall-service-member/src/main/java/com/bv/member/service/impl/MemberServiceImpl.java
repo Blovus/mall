@@ -6,7 +6,6 @@ import com.bv.core.constants.ExtConstants;
 import com.bv.core.token.ExtGenerateToken;
 import com.bv.core.utils.TypeCastUtils;
 import com.bv.member.dto.output.UserOutDTO;
-import com.bv.member.feign.WechatServiceFeign;
 import com.bv.member.mapper.UserMapper;
 import com.bv.member.mapper.converter.UserOutConverter;
 import com.bv.member.mapper.entity.UserDO;
@@ -27,10 +26,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController("MemberService")
 public class MemberServiceImpl extends BaseApiService<UserOutDTO> implements MemberService {
 
-
-    @Autowired
-    private WechatServiceFeign wechatServiceFeign;
-
     @Autowired
     private UserMapper userMapper;
 
@@ -42,6 +37,7 @@ public class MemberServiceImpl extends BaseApiService<UserOutDTO> implements Mem
 
     @Override
     public BaseResponse<UserOutDTO> existMobile(String mobile) {
+
         // 验证参数
         if (StringUtils.isEmpty(mobile)) {
             return setResultError("手机号码不能为空!");

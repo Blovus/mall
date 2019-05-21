@@ -35,9 +35,9 @@ public class MemberServiceImpl extends BaseApiService<UserOutDTO> implements Mem
     @Autowired
     private ExtGenerateToken generateToken;
 
+
     @Override
     public BaseResponse<UserOutDTO> existMobile(String mobile) {
-
         // 验证参数
         if (StringUtils.isEmpty(mobile)) {
             return setResultError("手机号码不能为空!");

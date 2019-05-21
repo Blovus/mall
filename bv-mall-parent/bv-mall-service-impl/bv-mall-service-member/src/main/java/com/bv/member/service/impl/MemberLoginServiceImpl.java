@@ -15,10 +15,10 @@ import com.bv.member.mapper.UserTokenMapper;
 import com.bv.member.mapper.entity.UserDO;
 import com.bv.member.mapper.entity.UserTokenDO;
 import com.bv.member.service.MemberLoginService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.TransactionStatus;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,6 +31,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Date: 2019/5/13 22:17
  * @Version: 1.0
  */
+@Slf4j
 @RestController("MemberLoginService")
 public class MemberLoginServiceImpl extends BaseApiService<JSONObject> implements MemberLoginService {
 
@@ -47,10 +48,8 @@ public class MemberLoginServiceImpl extends BaseApiService<JSONObject> implement
     @Autowired
     private UserTokenMapper userTokenMapper;
 
-
     @Override
     public BaseResponse<JSONObject> login(@RequestBody UserLoginInpDTO userLoginInpDTO) {
-
         // 验证参数
         String mobile = userLoginInpDTO.getMobile();
         if (StringUtils.isEmpty(mobile)) {
@@ -134,6 +133,7 @@ public class MemberLoginServiceImpl extends BaseApiService<JSONObject> implement
                 redisDataSoureceTransaction.rollback(transactionStatus);
                 return setResultError("系统错误");
             }
+
             redisDataSoureceTransaction.commit(transactionStatus);
             //创建data返回
             JSONObject data = new JSONObject();
@@ -141,11 +141,13 @@ public class MemberLoginServiceImpl extends BaseApiService<JSONObject> implement
             return setResultSuccess(data);
 
         } catch (Exception e) {
+            log.error(" error message :{}  ", e);
             try {
                 redisDataSoureceTransaction.rollback(transactionStatus);
                 return setResultError("系统错误");
             } catch (Exception e2) {
-                return null;
+                log.error(" error message :{}  ", e);
+                return setResultError("系统错误");
             }
         }
     }

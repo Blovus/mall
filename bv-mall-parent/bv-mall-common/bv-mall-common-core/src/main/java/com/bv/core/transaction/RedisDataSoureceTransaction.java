@@ -1,6 +1,5 @@
 package com.bv.core.transaction;
 
-import com.bv.core.templates.ExtRedisTemplate;
 import com.bv.core.transaction.utils.TnRedisTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;

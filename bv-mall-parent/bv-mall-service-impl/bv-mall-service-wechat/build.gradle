@@ -1,0 +1,10 @@
+description '微信服务实现'
+dependencies {
+    implementation project(':bv-mall-service-api:bv-mall-service-api-member')
+    implementation project(':bv-mall-service-api:bv-mall-service-api-wechat')
+
+    implementation "com.github.binarywang:weixin-java-mp:3.3.0"
+    implementation "org.springframework.cloud:spring-cloud-starter-netflix-eureka-client"
+    implementation "xstream:com.thoughtworks.xstream:1.4.10"
+
+}

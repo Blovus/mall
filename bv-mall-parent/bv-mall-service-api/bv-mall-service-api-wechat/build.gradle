@@ -1,0 +1,3 @@
+dependencies {
+    compile  project(':bv-mall-api-entity:bv-mall-api-wechat-entity')
+}

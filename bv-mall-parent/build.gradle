@@ -1,0 +1,97 @@
+buildscript {
+    ext {
+        springBootVersion = '2.1.5.RELEASE'
+        springCloudVersion = 'Greenwich.SR1'
+        dockerVersion = '1.2'
+        lombokVersion = '1.18.8'
+        fastjsonVersion = '1.2.58'
+        commonsNetVersion = '3.6'
+        swaggerVersion = '2.9.2'
+        apolloVersion = '1.4.0'
+        spring4allSwaggerVersion = '1.9.0.RELEASE'
+    }
+
+    repositories {
+        mavenCentral()
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+        maven { url "https://oss.sonatype.org/content/groups/public/" }
+        maven { url "https://repo.spring.io/libs-milestone/" }
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath "se.transmode.gradle:gradle-docker:${dockerVersion}"
+    }
+}
+allprojects {
+    group = 'com.bv.mall'
+    version = '0.0.1'
+}
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'idea'
+    apply plugin: 'io.spring.dependency-management'
+    sourceCompatibility = 1.8
+    repositories {
+        mavenCentral()
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+        maven { url "https://oss.sonatype.org/content/groups/public/" }
+        maven { url "https://repo.spring.io/libs-milestone/" }
+        jcenter()
+    }
+
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter-undertow'
+
+        compileOnly "org.projectlombok:lombok:${lombokVersion}"
+        annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
+        implementation "com.alibaba:fastjson:${fastjsonVersion}"
+        implementation "commons-net:commons-net:${commonsNetVersion}"
+        implementation "org.springframework.cloud:spring-cloud-starter-netflix-eureka-client" //SpringBoot整合eureka客户端
+
+
+        implementation 'org.springframework.boot:spring-boot-starter-actuator'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+        testImplementation 'junit:junit'
+
+    }
+    configurations {
+        // 排除 tomcat 依赖（使用 undertow）
+        implementation.exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+    }
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        }
+    }
+
+    sourceSets {
+        main {
+            java {
+                srcDirs = ['src/main/java']
+            }
+            resources {
+                include('**/*.xml')
+            }
+        }
+        test {
+            java {
+                srcDirs = ['src/test/java']
+            }
+        }
+    }
+    
+    // clean 命令时删除 build 目录
+    task cleanOutDir(type: Delete) {
+        delete "${projectDir}/build"
+        def  dir = "${projectDir}"
+        delete dir.substring(0,dir.lastIndexOf("\\"))+'\\src'
+        delete "${rootDir}/build"
+    }
+    tasks.clean.dependsOn(cleanOutDir)
+
+
+
+}

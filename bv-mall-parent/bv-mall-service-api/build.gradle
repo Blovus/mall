@@ -1,0 +1,7 @@
+description '接口'
+subprojects {
+    dependencies {
+        compile project(':bv-mall-common:bv-mall-common-core')
+        compile 'org.springframework.boot:spring-boot-starter-web'
+    }
+}

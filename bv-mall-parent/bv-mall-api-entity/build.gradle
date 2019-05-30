@@ -1,0 +1,6 @@
+description '接口实体类'
+subprojects {
+    dependencies {
+        compile  "com.spring4all:swagger-spring-boot-starter:${spring4allSwaggerVersion}" //SpringBoot整合eureka客户端
+    }
+}

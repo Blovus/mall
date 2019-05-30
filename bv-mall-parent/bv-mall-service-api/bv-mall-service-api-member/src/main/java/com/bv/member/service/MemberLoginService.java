@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 @Api(tags = "会员登录接口")
 public interface MemberLoginService {
 
+
+
     @PostMapping("/login")
     @ApiOperation(value = "会员用户登陆信息接口")
     BaseResponse<JSONObject> login(@RequestBody UserLoginInpDTO userLoginInpDTO);

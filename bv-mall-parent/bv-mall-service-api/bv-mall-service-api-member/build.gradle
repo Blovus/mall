@@ -1,0 +1,4 @@
+dependencies {
+    implementation project(':bv-mall-service-api:bv-mall-service-api-wechat')
+    implementation project(':bv-mall-api-entity:bv-mall-api-member-entity')
+}

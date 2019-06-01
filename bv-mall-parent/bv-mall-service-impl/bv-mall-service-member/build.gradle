@@ -1,5 +1,11 @@
 description '会员服务实现'
 dependencies {
-    compile project(':bv-mall-service-api:bv-mall-service-api-member')
+    implementation project(':bv-mall-service-api:bv-mall-service-api-member')
+
+    processResources {
+        from('src/main/java') {
+            include '**/*.xml'
+        }
+    }
 
 }

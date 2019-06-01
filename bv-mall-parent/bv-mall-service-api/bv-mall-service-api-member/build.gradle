@@ -1,4 +1,5 @@
+description '会员服务接口'
 dependencies {
-    implementation project(':bv-mall-service-api:bv-mall-service-api-wechat')
-    implementation project(':bv-mall-api-entity:bv-mall-api-member-entity')
+    compile project(':bv-mall-service-api:bv-mall-service-api-wechat')
+    compile project(':bv-mall-api-entity:bv-mall-api-member-entity')
 }

@@ -9,9 +9,15 @@ buildscript {
         swaggerVersion = '2.9.2'
         apolloVersion = '1.4.0'
         spring4allSwaggerVersion = '1.9.0.RELEASE'
+        xstreamVersion = '1.4.11.1'
+        weixinVersion = '3.4.0'
+        mybatisVersion = '2.0.1'
+        mybatisGeneratorVersion = '1.3.7'
+        r4jVersion = '0.15.0'
     }
 
     repositories {
+        mavenLocal()
         mavenCentral()
         maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
         maven { url "https://oss.sonatype.org/content/groups/public/" }
@@ -34,6 +40,7 @@ subprojects {
     apply plugin: 'io.spring.dependency-management'
     sourceCompatibility = 1.8
     repositories {
+        mavenLocal()
         mavenCentral()
         maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
         maven { url "https://oss.sonatype.org/content/groups/public/" }
@@ -49,8 +56,13 @@ subprojects {
 
         implementation "com.alibaba:fastjson:${fastjsonVersion}"
         implementation "commons-net:commons-net:${commonsNetVersion}"
-        implementation "org.springframework.cloud:spring-cloud-starter-netflix-eureka-client" //SpringBoot整合eureka客户端
+        implementation "dom4j:dom4j"
 
+
+        //SpringBoot整合eureka客户端
+        implementation "org.springframework.cloud:spring-cloud-starter-netflix-eureka-client"
+        //hystrix断路器组件，springcloud有相关依赖,必须引入
+        implementation "org.springframework.cloud:spring-cloud-starter-netflix-hystrix"
 
         implementation 'org.springframework.boot:spring-boot-starter-actuator'
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -73,7 +85,8 @@ subprojects {
                 srcDirs = ['src/main/java']
             }
             resources {
-                include('**/*.xml')
+                //可以将java目录下的所有非.java资源打包到classes下
+                srcDirs = ['src/main/java', 'src/main/resources']
             }
         }
         test {
@@ -83,12 +96,12 @@ subprojects {
         }
     }
     
-    // clean 命令时删除 build 目录
+    // clean 命令时删除 不必要的src 目录
     task cleanOutDir(type: Delete) {
-        delete "${projectDir}/build"
+        //delete "${projectDir}/build"
         def  dir = "${projectDir}"
         delete dir.substring(0,dir.lastIndexOf("\\"))+'\\src'
-        delete "${rootDir}/build"
+        //delete "${rootDir}/build"
     }
     tasks.clean.dependsOn(cleanOutDir)
 

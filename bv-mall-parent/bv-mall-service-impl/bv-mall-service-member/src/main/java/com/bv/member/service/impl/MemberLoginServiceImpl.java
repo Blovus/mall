@@ -16,7 +16,7 @@ import com.bv.member.mapper.entity.UserDO;
 import com.bv.member.mapper.entity.UserTokenDO;
 import com.bv.member.service.MemberLoginService;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.web.bind.annotation.RequestBody;

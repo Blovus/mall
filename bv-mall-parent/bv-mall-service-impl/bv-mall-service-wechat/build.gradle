@@ -3,8 +3,8 @@ dependencies {
     implementation project(':bv-mall-service-api:bv-mall-service-api-member')
     implementation project(':bv-mall-service-api:bv-mall-service-api-wechat')
 
-    implementation "com.github.binarywang:weixin-java-mp:3.3.0"
+    implementation "com.github.binarywang:weixin-java-mp:${weixinVersion}"
     implementation "org.springframework.cloud:spring-cloud-starter-netflix-eureka-client"
-    implementation "xstream:com.thoughtworks.xstream:1.4.10"
+    implementation "com.thoughtworks.xstream:xstream:${xstreamVersion}"
 
 }

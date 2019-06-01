@@ -34,7 +34,7 @@ public interface MemberService {
     @ApiOperation(value = "根据手机号码查询是否已经存在,如果存在返回当前用户信息")
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "query", name = "mobile", dataType = "String", required = true, value = "用户手机号码"),})
-    @PostMapping("/existMobile")
+    @GetMapping("/existMobile")
     BaseResponse<UserOutDTO> existMobile(@RequestParam("mobile") String mobile) ;
 
     /**

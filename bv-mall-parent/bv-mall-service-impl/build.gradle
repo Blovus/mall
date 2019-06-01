@@ -4,6 +4,5 @@ subprojects {
         implementation "com.ctrip.framework.apollo:apollo-client:${apolloVersion}"
         implementation "com.ctrip.framework.apollo:apollo-core:${apolloVersion}"
         implementation "org.springframework.cloud:spring-cloud-starter-openfeign"
-
     }
 }
